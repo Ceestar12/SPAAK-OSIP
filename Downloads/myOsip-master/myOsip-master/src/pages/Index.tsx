@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import '@fontsource/urbanist'; // Defaults to 400
+import '@fontsource/urbanist/600.css'; // Optional bold weight
 import { CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -59,7 +61,7 @@ const Index = () => {
                 Each OSIP cycle selects 10 promising innovators and pairs them with skilled tech talents, developers, designers, analysts, and product managers to bring their ideas to life.
               </motion.div>
             </div>
-            <div className="flex-1 hidden md:block">
+            <div className="flex-1 block">
               <img
                 src="/Gemini_Generated_Image_96iluz96iluz96il (1).webp"
                 alt="Collaborative team working on innovation"
@@ -70,7 +72,7 @@ const Index = () => {
 
           {/* Why Partner with Us */}
           <section id="why-partner" className="mb-8 flex flex-col md:flex-row gap-6 md:items-center scroll-mt-20">
-            <div className="flex-1 hidden md:block">
+            <div className="flex-1 md:order-first order-last">
               <img
                 src="/Gemini_Generated_Image_atvpktatvpktatvp1.webp"
                 alt="Collaborative team working on innovation"
@@ -78,7 +80,7 @@ const Index = () => {
               />
             </div>
             <div className="flex-1">
-              <div className="text-xl font-semibold text-brand-gold mb-1">
+              <div className="text-xl font-semibold  text-brand-gold mb-1">
                 Why Partner with Us?
                 <span className="block w-16 h-[2px] rounded bg-brand-gold mt-2 mb-4"></span>
               </div>

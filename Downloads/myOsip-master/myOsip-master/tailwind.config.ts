@@ -19,6 +19,10 @@ export default {
     extend: {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        manrope: ['Manrope', 'sans-serif'],
+        dmsans: ['DM Sans', 'sans-serif'],
+        urbanist: ['Urbanist', 'sans-serif'],
       },
       colors: {
         brand: {
