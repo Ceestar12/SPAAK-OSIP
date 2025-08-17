@@ -1,0 +1,418 @@
+/* RESET AND BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  background: rgb(3, 0, 31);
+  color: white;
+  font-family: Poppins, sans-serif;
+}
+
+/* LAYOUT */
+.App {
+  max-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.sideBar {
+  width: 45rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 1rem;
+  margin-right: 2rem;
+  border-right: 1px solid gray;
+  overflow-y: auto;
+  height: 100vh;
+  z-index: 10;
+}
+
+.main {
+  flex: 1;
+  margin-left: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 3rem 2rem;
+  overflow-y: auto;
+}
+
+/* CHAT AREA */
+.chats {
+  overflow-y: auto;
+  width: 100%;
+  max-width: 70rem;
+  height: calc(100vh - 17rem);
+  padding: 10px;
+  flex-grow: 1;
+}
+
+.chat {
+  display: flex;
+  align-items: flex-start;
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 100%;
+}
+.chat.bot {
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+}
+.chat:not(.bot) {
+  flex-direction: row-reverse;
+}
+
+/* CHAT TEXT & IMAGE */
+.chatImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0;
+}
+
+.bot {
+  border-radius: 0.5rem;
+  background-color: transparent;
+}
+
+.txt {
+  background: rgba(28, 30, 58, 1);
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.4;
+  font-size: 1.3rem;
+  color: #f0f0f0;
+  max-width: 100%;
+  margin: 0;
+  overflow-wrap: break-word;
+  flex: 1;
+}
+
+/* Target first paragraph for spacing */
+.txt p:first-child {
+  margin-bottom: 5px !important;
+  line-height: 1.5 !important;
+  font-size: 1.6rem !important;
+}
+
+/* Target last paragraph for styling */
+.txt p:last-child {
+  line-height: 1.5 !important;
+  font-size: 1.4rem !important;
+  margin-top: 10px !important;
+}
+
+
+/* INPUT SECTION */
+.chatFooter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  margin-top: auto;
+  margin: auto 2rem;
+}
+
+.inp {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background: rgba(28, 30, 58, 1);
+  border-radius: 0.5rem;
+  width: 60%;
+  min-height: 4rem;
+  overflow: hidden;
+  gap: 0.5rem;
+}
+
+.inp > textarea {
+  flex: 1;
+  padding: 0.75rem 1rem; /* was 1.25rem */
+  color: white;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  min-height: 2.5rem; /* was 4rem */
+  max-height: 8rem;
+  overflow-y: auto;
+  font-size: 1.5rem;
+}
+
+textarea::placeholder {
+  font-size: 1.5rem;
+  color: #999;
+}
+
+textarea,
+.send {
+  background: transparent;
+  border: none;
+}
+
+/* BUTTONS */
+.send {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* UI COMPONENTS */
+.sends img {
+  width: 10px;
+}
+
+.midBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25rem;
+  padding: 0.5rem;
+  color: white;
+  gap: 1rem;
+  background: #5a4bff;
+  margin: 0 auto 3rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.addBtn {
+  width: 25px;
+}
+
+.query {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  padding: 1.9rem;
+  width: 35rem;
+  margin: 1rem auto;
+  color: white;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(98, 98, 98, 1);
+}
+
+/* SIDEBAR ELEMENTS */
+.upperSide {
+  padding: 4rem;
+  height: 70%;
+}
+
+.upperSideTop{
+  display: flex;
+  align-items: center;
+ 
+}
+.upperSide .brand{
+  font-size: 2.5rem;
+}
+.upperSideTop2 {
+  display: flex;
+  align-items: center;
+ 
+}
+
+.logo {
+  display: block;
+  margin-right: 1rem;
+  width: 50px;
+  border-radius: 100%;
+}
+.chat-message{
+  font-size: 1.2rem;
+}
+.brand {
+  display: block;
+}
+.upperSideTop2 .brand{
+  display: none;
+}
+.upperSideTop2 .logo {
+  display: none;
+}
+.lowerSide {
+  padding: 2rem;
+}
+
+.listItem {
+  display: flex;
+  margin: 1rem;
+  align-items: center;
+  font-size: 1.4rem;
+  gap: 1rem;
+}
+
+.listItemImg {
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #007bff;
+  animation: pulse 1s infinite ease-in-out;
+  margin-right: 5px;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+}
+.newChatTopBtn {
+  margin-left: auto;
+  padding: 1rem;
+  background-color: #007BFF;
+  color: white;
+  font-size: 1.4rem;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newChatTopBtn:hover {
+  background-color: #0056b3;
+}
+
+textarea::placeholder {
+  font-size: 1.5rem;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1102px) {
+  .App{
+    max-width: 100%;
+  }
+  .sideBar {
+    display: none;
+  }
+
+  .main {
+    flex: 1;
+    margin: 1rem 1rem;
+    margin-top: 7.5rem; 
+  }
+  .inp {
+    width: 100%;
+  }
+  .upperSideTop2 .brand{
+    display: block;
+  }
+  .upperSideTop2 {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(3, 0, 31, 1);
+    padding: 3rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    align-items: center;
+  }
+  .upperSideTop2 .logo {
+    display: block;
+  }
+
+  
+  .upperSideTop2 .brand {
+    font-size: 2rem;
+  }
+
+  textarea {
+    font-size: 1rem;
+  }
+
+  textarea::placeholder {
+    font-size: 1.2rem;
+  } 
+  
+  .upperSideTop2 .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .upperSideTop2 .brand {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sideBar {
+    display: none;
+  }
+
+  .main {
+    flex: 1;
+    margin: 1rem 1rem;
+    margin-top: 6rem; 
+  }
+
+  .inp {
+    width: 100%;
+  }
+
+  .chatFooter {
+    align-items: center;
+    margin: auto 0;
+  }
+
+  .upperSideTop2 {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(3, 0, 31, 1);
+    padding: 3rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    align-items: center;
+  }
+  .upperSideTop2 .logo {
+    display: block;
+  }
+
+  .upperSideTop2 .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .upperSideTop2 .brand {
+    font-size: 2rem;
+  }
+
+  textarea {
+    font-size: 1.2rem;
+  }
+
+  textarea::placeholder {
+    font-size: 1.2rem;
+  }
+
+  
+}
